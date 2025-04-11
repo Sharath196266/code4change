@@ -38,25 +38,25 @@ const Home = () => {
       backgroundColor: 'rgb(207, 220, 252)',
       minHeight: '100vh',
       width: '100%',
-      overflowX: 'hidden',
+      overflowX: 'auto',
     },
     scrollContent: {
       margin: '0 auto',
-      paddingTop: '100px',
+      paddingTop: windowWidth < 480 ? "100px": '',
       paddingBottom: '60px',
       paddingLeft: windowWidth < 768 ? '1rem' : '2rem',
       paddingRight: windowWidth < 768 ? '1rem' : '2rem',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '3rem',
+      gap: '1rem',
       maxWidth: 1200,
     },
     mainimg: {
       width: '100%',
-      maxWidth: windowWidth < 480 ? 320 : windowWidth < 768 ? 480 : 850,
-      height: getImageHeight(),
-      objectFit: 'contain',
+      maxWidth: windowWidth < 480 ? 480 : windowWidth < 768 ? 500 : 900,
+      height: 'auto',
+      objectFit:'contain',
     },
     sectionBox: {
       backgroundColor: '#ffffff',
@@ -99,7 +99,9 @@ const Home = () => {
     <div style={styles.page}>
       <Navbar />
       <div style={styles.scrollContent}>
+        <div id="mainImage">
         <img src={mainImg} alt="CODE4CHANGE Logo" style={styles.mainimg} />
+        </div>
 
         <div style={styles.sectionBox} id="sponsors">
           <h2 style={styles.heading}>Sponsored By</h2>
@@ -117,20 +119,11 @@ const Home = () => {
 
         <div style={styles.sectionBox} id="about">
           <h3 style={styles.heading}>🚀 What is Code4Change?</h3>
-          <p style={styles.text}>
+          <h3 style={styles.text}>
             Code4Change is the flagship tech fest of Government Engineering College, Hassan, featuring a national-level Hackathon and an intense Tech Quiz. It’s a platform to code, innovate, and showcase your problem-solving skills while competing with top student talent across India.
-          </p>
+          </h3>
         </div>
 
-        <div style={styles.sectionBox} id="location">
-          <h3 style={styles.heading}>📍 Location</h3>
-          <p style={styles.text}>Government Engineering College, Hassan, Karnataka</p>
-        </div>
-
-        <div style={styles.sectionBox} id="dates">
-          <h3 style={styles.heading}>🗓️ Dates</h3>
-          <p style={styles.text}>May 9 – 10, 2025</p>
-        </div>
 
         <div style={styles.sectionBox} id="events">
           <h3 style={styles.heading}>🎯 Main Events</h3>
@@ -189,23 +182,66 @@ const Home = () => {
 
         <div style={styles.sectionBox} id="terms">
           <h3 style={styles.heading}>📜 Terms & Conditions</h3>
-          <p style={styles.text}>
-            • Participants must be currently enrolled students.<br />
-            • Team members must be from the same college for the Hackathon.<br />
-            • Any form of plagiarism or code-of-conduct violation will lead to disqualification.<br />
-            • Final decisions rest with the organizing committee.
-          </p>
+          <ul style={{ 
+            paddingLeft: '1.2rem', 
+            fontSize: styles.text.fontSize, 
+            color: styles.text.color, 
+            lineHeight: 1.7 
+          }}>
+            <li>🧑‍🎓 Participants must be currently enrolled students.</li>
+            <li>🧑‍🤝‍🧑 All team members must enter the same team name and be from the same college.</li>
+            <li>🪪 College ID card is mandatory (original only).</li>
+            <li>🧑‍🤝‍🧑 Inter-specialization teams are also allowed.</li>
+            <li>🎫 QR ticket is required for entry – check <a href="https://lu.ma/hbwkmczv" target="_blank" rel="noopener noreferrer">lu.ma/hbwkmczv</a> after selection.</li>
+            <li>❌ No copying or using old projects (even your own).</li>
+            <li>🚫 Any form of plagiarism or code-of-conduct violation will lead to disqualification.</li>
+            <li>📜 Final decisions rest with the organizing committee.</li>
+            <li>😎 Be respectful and enjoy the event!</li>
+            <li>🔒✅ Please make sure to review and accept the Terms & Conditions before completing your registration.</li>
+          </ul>
         </div>
+
 
         <div style={styles.sectionBox} id="contact">
-          <h3 style={styles.heading}>📞 Contact Us</h3>
-          <p style={styles.text}>
-            📧 Email: <a href="mailto:sharath7hn@gmail.com">sharath7hn@gmail.com</a><br />
-            📱 Phone: +91-7204022677 (Student Coordinator)<br />
-            🌐 Website: <a href="https://www.gechassan.ac.in" target="_blank" rel="noopener noreferrer">www.gechassan.ac.in</a>
-          </p>
-        </div>
+  <h3 style={styles.heading}>📞 Contact Us</h3>
+  <p style={styles.text}>
+    📧 Email: <a href="mailto:sharath7hn@gmail.com">sharath7hn@gmail.com</a><br />
+    📱 Phone: +91-7204022677 (Student Coordinator)<br />
+    🌐 Website: <a href="https://www.gechassan.ac.in" target="_blank" rel="noopener noreferrer">www.gechassan.ac.in</a>
+  </p>
+  <br />
+  <h4 style={{ ...styles.heading, fontSize: styles.heading.fontSize - 2 }}>👥 Contact the Organizers</h4>
+  <p style={styles.text}>
+    👨‍🏫 Dr. Vasantha Kumara M – Placement Officer – 📱 +91 99026 77199<br />
+    👨‍💼 B R Adithya – 📱 +91 86182 36719<br />
+    👨‍💻 Sharath H N – 📱 +91 72040 22677
+  </p>
+</div>
 
+<div style={styles.sectionBox} id="location">
+  <h3 style={styles.heading}>📍 Location</h3>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '1rem',
+    marginBottom: '1rem'
+  }}>
+    <p style={styles.text}>Government Engineering College, Hassan, Karnataka</p>
+    <iframe
+      title="Google Map"
+      src="https://maps.google.com/maps?q=Government%20Engineering%20College,%20Hassan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      width="100%"
+      height="250"
+      style={{ border: 0, borderRadius: '10px', maxWidth: '600px' }}
+      allowFullScreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+  
+</div>
+<p style={{fontSize: 14,
+  color: '#444',}}>2025 © Code4Change | All rights reserved.</p>
       </div>
     </div>
   );

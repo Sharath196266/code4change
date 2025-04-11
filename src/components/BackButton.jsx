@@ -20,14 +20,14 @@ const styles = {
   button: {
     position: 'fixed',
     top: 100,
-    left: 30,
+    left: 10,
     zIndex: 50,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
     backgroundColor: '#3b82f6',
     borderRadius: '9999px', // fully rounded
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',

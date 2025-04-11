@@ -24,11 +24,11 @@ export default function Navbar({ loggedIn = false }) {
         {/* Desktop Nav */}
         <nav className="nav-links">
           <a href="/home">HOME</a>
-          <a href="#sponsors">SPONSORS</a>
-          <a href="#about">ABOUT</a>
-          <a href="#prizepool">PRIZES</a>
-          <a href="#tracks">TRACKS</a>
-          <a href="#events">TIMELINE</a>
+          <a href="/home/#sponsors">SPONSORS</a>
+          <a href="/home/#about">ABOUT</a>
+          <a href="/home/#prizepool">PRIZES</a>
+          <a href="/home/#tracks">TRACKS</a>
+          <a href="/home/#events">TIMELINE</a>
         </nav>
 
         {/* Right-side (Profile/Register + Menu Icon) */}
@@ -51,12 +51,12 @@ export default function Navbar({ loggedIn = false }) {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="mobile-menu">
-          <a href="#home" onClick={() => setIsOpen(false)}>HOME</a>
-          <a href="#sponsors" onClick={() => setIsOpen(false)}>SPONSORS</a>
-          <a href="#about" onClick={() => setIsOpen(false)}>ABOUT</a>
-          <a href="#prizepool" onClick={() => setIsOpen(false)}>PRIZES</a>
-          <a href="#tracks" onClick={() => setIsOpen(false)}>TRACKS</a>
-          <a href="#events" onClick={() => setIsOpen(false)}>TIMELINE</a>
+          <a href="/home" onClick={() => setIsOpen(false)}>HOME</a>
+          <a href="/home/#sponsors" onClick={() => setIsOpen(false)}>SPONSORS</a>
+          <a href="/home/#about" onClick={() => setIsOpen(false)}>ABOUT</a>
+          <a href="/home/#prizepool" onClick={() => setIsOpen(false)}>PRIZES</a>
+          <a href="/home/#tracks" onClick={() => setIsOpen(false)}>TRACKS</a>
+          <a href="/home/#events" onClick={() => setIsOpen(false)}>TIMELINE</a>
         </div>
       )}
     </header>
