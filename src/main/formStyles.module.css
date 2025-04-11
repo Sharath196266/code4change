@@ -1,0 +1,114 @@
+.pageContainer {
+    margin-top: 120px;   /* Set a maximum width to avoid stretching too wide on large screens */
+    width:max-content;
+}
+
+.formContainer {
+    margin-top: 20px;
+    background-color: rgb(207, 220, 252);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px; /* Default max-width */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px; /* Updated font size */
+    margin-bottom: 6px;
+}
+
+.required {
+    color: red;
+}
+
+input,
+textarea {
+    padding: 12px;
+    font-size: 14px; /* Updated font size */
+    border-radius: 6px;
+    border: 1px solid #a0bce0;
+    background-color: rgb(207, 220, 252);
+    color: black;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.backBtn,
+.nextBtn {
+    align-self: flex-end;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.backBtn {
+    background-color: #c0c0c0;
+    color: black;
+    margin-bottom: 12px;
+}
+
+.nextBtn {
+    background-color: #3a64d8;
+    color: white;
+}
+
+@media (max-width: 800px) {
+    .pageContainer {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .formContainer {
+        padding: 16px;
+        max-width: 90%; /* Adjust the max-width for smaller screens */
+    }
+
+    .nextBtn,
+    .backBtn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    label {
+        font-size: 14px; /* Updated font size */
+    }
+
+    input,
+    textarea {
+        font-size: 14px; /* Updated font size */
+    }
+}
+
+@media (max-width: 400px) {
+    .pageContainer {
+        width: 100%; /* Ensure full width for the smallest screens */
+    }
+
+    .formContainer {
+        padding: 12px;
+        max-width: 100%; /* Full-width for the smallest screens */
+    }
+
+    label {
+        font-size: 14px; /* Updated font size */
+    }
+
+    input,
+    textarea {
+        font-size: 14px; /* Updated font size */
+    }
+}

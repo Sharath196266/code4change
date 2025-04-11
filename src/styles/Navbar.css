@@ -1,0 +1,174 @@
+/* === Navbar Base === */
+.navbar {
+    position: fixed;
+    top: 0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    width: 95%;
+    max-width: 1280px;
+    height: 70px;
+    background: linear-gradient(to right, #1e3a8a, rgba(30, 58, 138, 0.8));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* === Navbar Container === */
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* === Logo === */
+  .logo {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 10px;
+  }
+  
+  .logo-img {
+    height: 68px;
+  }
+  
+  /* === Navigation Links === */
+  .nav-links {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      gap: 1rem;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+  
+    .nav-links a:hover {
+      color: #d1d5db;
+    }
+  }
+  
+  /* === Right Side Icons === */
+  .right-icons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: auto;
+  }
+  
+  .profile-img {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  /* === Register / Login Button === */
+  .register-btn {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #1e3a8a;
+    padding: 0.3rem 0.55rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+  }
+  
+  .register-btn:hover {
+    background-color: #e0f2fe;
+  }
+  
+  .register-btn .icon {
+    margin-right: 0.3rem;
+    height: 16px;
+    width: 16px;
+    transition: transform 0.3s;
+  }
+  
+  .register-btn:hover .icon {
+    transform: translateX(4px);
+  }
+  
+  /* === Mobile Menu Button === */
+  .menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 51;
+    padding: 5px;
+    margin:2px;
+  }
+  
+  @media (min-width: 768px) {
+    .menu-btn {
+      display: none;
+    }
+  }
+  
+  /* === Mobile Dropdown Menu (Right-Aligned) === */
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 140px;
+    padding: 1rem 1.25rem;
+    background-color: rgba(30, 58, 138, 0.95);
+    border-radius: 1rem 0 1rem 1rem;
+    box-shadow: -2px 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 1rem;
+    z-index: 40;
+    animation: slideInRight 0.3s ease-in-out;
+  }
+  
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .mobile-menu a:hover {
+    color: #d1d5db;
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
