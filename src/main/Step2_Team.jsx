@@ -1,171 +1,203 @@
-import React, { useState } from "react";
-import Navbar from '../components/Navbar'; // Adjust path as per your folder structure
-
+import React, { useState, useEffect, useRef } from "react";
+import Navbar from "../components/Navbar";
 
 const Step2_Team = ({ nextStep, prevStep, handleChange, values }) => {
   const [loading, setLoading] = useState(false);
   const [numMembers, setNumMembers] = useState(values.numMembers || 2);
+  const formRef = useRef(null); // ⬅️ For form validation
+
+  useEffect(() => {
+    const updatedMembers = Array.from({ length: numMembers }, (_, i) => values.members?.[i] || {});
+    handleChange("members", updatedMembers);
+  }, [numMembers]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  
 
   const handleInputChange = (index, field, value) => {
     const updatedMembers = [...(values.members || [])];
-    updatedMembers[index] = {
-      ...(updatedMembers[index] || {}),
-      [field]: value,
-    };
-    handleChange("members")(updatedMembers);
+    updatedMembers[index] = { ...(updatedMembers[index] || {}), [field]: value };
+    handleChange("members", updatedMembers);
   };
 
   const handleNumMembersChange = (e) => {
-    const num = Math.min(Math.max(parseInt(e.target.value), 2), 4);
+    const num = Math.min(Math.max(parseInt(e.target.value), 1), 4);
     setNumMembers(num);
-    const updatedMembers = Array.from({ length: num }, (_, i) => values.members?.[i] || {});
-    handleChange("numMembers")(num);
-    handleChange("members")(updatedMembers);
+    handleChange("numMembers", num);
   };
 
-  const handleNext = () => {
-    
-
-    for (let i = 0; i < numMembers; i++) {
-      const member = values.members?.[i];
-      
+  const handleNext = (e) => {
+    e.preventDefault();
+    if (formRef.current.checkValidity()) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        nextStep();
+      }, 1000);
+    } else {
+      formRef.current.reportValidity();
     }
-
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      nextStep();
-    }, 2000);
   };
 
   return (
-    <div style={styles.container}>
-        <Navbar loggedIn/>
-      <h2 style={styles.heading}>👥 Team Information</h2>
+    <>
+      <Navbar loggedIn />
+      <div style={styles.container}>
+        <h2 style={styles.heading}>Step 2: Team Information</h2>
 
-      <label style={styles.label}>Team Name</label>
-      <input
-        type="text"
-        style={styles.input}
-        value={values.teamName || ""}
-        onChange={(e) => handleChange("teamName")(e.target.value)}
-        required
-      />
-
-      <label style={styles.label}>Number of Members (2–4)</label>
-      <input
-        type="number"
-        style={styles.input}
-        value={numMembers}
-        min={2}
-        max={4}
-        onChange={handleNumMembersChange}
-      />
-
-      {[...Array(numMembers)].map((_, i) => (
-        <div key={i} style={styles.memberBox}>
-          <h4 style={styles.memberHeading}>👤 Member {i + 1}</h4>
-
-          <label style={styles.label}>Name</label>
+        <form ref={formRef} style={styles.form} onSubmit={handleNext}>
+          <label style={styles.label}>Team Name</label>
           <input
             type="text"
             style={styles.input}
-            value={values.members?.[i]?.name || ""}
-            onChange={(e) => handleInputChange(i, "name", e.target.value)}
+            value={values.teamName || ""}
+            onChange={(e) => handleChange("teamName", e.target.value)}
+            placeholder="Enter your team name"
             required
           />
 
-          <label style={styles.label}>Phone Number</label>
-          <input
-            type="tel"
-            style={styles.input}
-            value={values.members?.[i]?.phone || ""}
-            onChange={(e) => handleInputChange(i, "phone", e.target.value)}
+          <label style={styles.label}>Number of Members (1–4)</label>
+          <select
+            style={{ ...styles.input, height: 50 }}
+            value={numMembers}
+            onChange={(e) => handleNumMembersChange({ target: { value: e.target.value } })}
             required
-          />
+          >{console.log("no"+values.numMembers)}
+            {[1, 2, 3].map((num) => (
+              <option key={num} value={num}>
+                {num+1} Members
+              </option>
+            ))}
+          </select>
 
-          <label style={styles.label}>GitHub Profile Link</label>
-          <input
-            type="url"
-            style={styles.input}
-            value={values.members?.[i]?.github || ""}
-            onChange={(e) => handleInputChange(i, "github", e.target.value)}
-            required
-          />
-        </div>
-      ))}
+          {[...Array(numMembers)].map((_, i) => (
+            <div key={i} style={styles.memberBox}>
+              <h4 style={styles.memberHeading}>👤 Member {i + 2}</h4>
 
-      <div style={styles.buttonRow}>
-        <button onClick={prevStep} style={styles.backBtn}>
-          ⬅ Back
-        </button>
-        <button onClick={handleNext} style={styles.nextBtn} disabled={loading}>
-          {loading ? "Loading..." : "Next ➡"}
-        </button>
+              <label style={styles.label}>Name</label>
+              <input
+                type="text"
+                style={styles.input}
+                value={values.members?.[i]?.name || ""}
+                onChange={(e) => handleInputChange(i, "name", e.target.value)}
+                placeholder="Full name"
+                required
+              />
+
+              <label style={styles.label}>Phone Number</label>
+              <input
+                type="tel"
+                style={styles.input}
+                value={values.members?.[i]?.phone || ""}
+                onChange={(e) => handleInputChange(i, "phone", e.target.value)}
+                placeholder="10-digit phone number"
+                pattern="[0-9]{10}"
+                required
+              />
+
+              <label style={styles.label}>GitHub Profile</label>
+              <input
+                type="url"
+                style={styles.input}
+                value={values.members?.[i]?.github || ""}
+                onChange={(e) => handleInputChange(i, "github", e.target.value)}
+                placeholder="https://github.com/username"
+                required
+              />{console.log(values.members)}
+
+            </div>
+          ))}
+
+          <div style={styles.buttonRow}>
+            <button type="button" onClick={prevStep} style={styles.backBtn}>⬅ Back</button>
+            <button type="submit" style={styles.nextBtn} disabled={loading}>
+              {loading ? "Loading..." : "Next ➡"}
+            </button>
+          </div>
+        </form>
       </div>
-    </div>
+    </>
   );
 };
 
+
 const styles = {
   container: {
-    marginTop:"80px",
+    marginTop: "100px",
+    padding: 30,
     backgroundColor: "rgb(207, 220, 252)",
-    padding: "2rem",
-    borderRadius: "12px",
-    maxWidth: "600px",
-    margin: "auto",
-    marginBottom: "3rem",
+    minHeight: "100vh",
+    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
   },
   heading: {
-    fontSize: "24px",
-    marginBottom: "1rem",
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 30,
+    textAlign: "center",
+    color: "#333",
+  },
+  form: {
+    backgroundColor: "#fff",
+    padding: 30,
+    borderRadius: 14,
+    boxShadow: "0 6px 18px rgba(0, 0, 0, 0.1)",
+    maxWidth: 700,
+    margin: "0 auto",
   },
   label: {
+    fontWeight: "600",
     display: "block",
-    marginTop: "1rem",
-    fontWeight: "bold",
+    marginBottom: 6,
+    marginTop: 20,
+    fontSize: 15,
+    color: "#444",
   },
   input: {
     width: "100%",
-    padding: "0.6rem",
-    marginTop: "0.3rem",
-    borderRadius: "8px",
+    padding: "12px 14px",
+    borderRadius: 8,
     border: "1px solid #ccc",
-    fontSize: "1rem",
+    marginBottom: 5,
+    fontSize: 16,
+    outline: "none",
   },
   memberBox: {
-    backgroundColor: "#fff",
-    padding: "1rem",
-    borderRadius: "10px",
-    marginTop: "1.5rem",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+    backgroundColor: "#f5faff",
+    padding: 20,
+    borderRadius: 12,
+    marginTop: 20,
+    boxShadow: "0 3px 10px rgba(0,0,0,0.05)",
   },
   memberHeading: {
-    fontSize: "18px",
-    marginBottom: "0.5rem",
+    fontSize: 18,
+    marginBottom: 10,
+    fontWeight: "600",
+    color: "#333",
   },
   buttonRow: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: "2rem",
+    marginTop: 30,
   },
   nextBtn: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#1976d2",
     color: "#fff",
-    padding: "0.7rem 1.5rem",
-    fontSize: "1rem",
+    padding: "14px 28px",
+    fontSize: 16,
     border: "none",
-    borderRadius: "8px",
+    borderRadius: 8,
+    fontWeight: "bold",
     cursor: "pointer",
   },
   backBtn: {
     backgroundColor: "#6c757d",
     color: "#fff",
-    padding: "0.7rem 1.2rem",
-    fontSize: "1rem",
+    padding: "14px 20px",
+    fontSize: 16,
     border: "none",
-    borderRadius: "8px",
+    borderRadius: 8,
+    fontWeight: "bold",
     cursor: "pointer",
   },
 };

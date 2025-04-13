@@ -8,7 +8,7 @@ export const uploadFileToBucket = async (bucket, file, filename) => {
       cacheControl: '3600',
       upsert: true,
     });
-
+    console.log(filename)
   if (error) {
     throw new Error(`Upload to ${bucket} failed: ${error.message}`);
   }
@@ -26,8 +26,8 @@ export const submitFormData = async (formData) => {
     const isHackathon = formData.event === 'Hackathon';
 
     // Upload files
-    const ideaFileUrl = formData.ideaFile
-      ? await uploadFileToBucket('ideafiles', formData.ideaFile, `ppt-${Date.now()}-${formData.name}.pdf`)
+    const ideaFileUrl = formData.ppt
+      ? await uploadFileToBucket('ideafiles', formData.ppt, `ppt-${Date.now()}-${formData.name}.pdf`)
       : '';
 
     const paymentProofUrl = formData.paymentProof
@@ -43,22 +43,23 @@ export const submitFormData = async (formData) => {
           address: formData.city,
           mail: formData.email,
           event: formData.event,
-          member2: formData.member2,
-          member3: formData.member3,
-          member4: formData.member4,
-          phone2: formData.phone2,
-          phone3: formData.phone3,
-          phone4: formData.phone4,
-          git1: formData.github1,
-          git2: formData.github2,
-          git3: formData.github3,
-          git4: formData.github4,
-          idea: formData.ideaTitle,
-          details: formData.ideaDesc,
+          git1: formData.github,
+          member2: formData.members?.[0]?.name || '',
+          member3: formData.members?.[1]?.name || '',
+          member4: formData.members?.[2]?.name || '',
+          phone2: formData.members?.[0]?.phone || '',
+          phone3: formData.members?.[1]?.phone || '',
+          phone4: formData.members?.[2]?.phone || '',
+          git2: formData.members?.[0]?.github || '',
+          git3: formData.members?.[1]?.github || '',
+          git4: formData.members?.[2]?.github || '',
+          idea: formData.idea,
+          details: formData.description,
           ppt: ideaFileUrl,
           transaction: formData.transactionId,
           payment_proof: paymentProofUrl,
           track: formData.track,
+          numMem:formData.numMembers+1,
         }
       ]);
 

@@ -13,12 +13,15 @@ const RegistrationForm = () => {
     phone: '',
     college: '',
     city: '',
+    github:'',
     event: '',
+    track:'',
     teamName: '',
+    numMembers:0,
     members: '',
-    github: '',
-    ideaTitle: '',
-    ideaDesc: '',
+    idea: '',
+    description: '',
+    ppt: null,
     transactionId: '',
     paymentProof: null,
   });
@@ -79,6 +82,7 @@ const RegistrationForm = () => {
         <Step3_Idea
           nextStep={nextStep}
           prevStep={prevStep}
+          handleFileChange={handleFileChange}
           handleChange={handleChange}
           values={formData}
         />

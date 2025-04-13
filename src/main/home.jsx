@@ -25,6 +25,7 @@ const Home = () => {
       }
     }
   }, [location]);
+  
 
   const getImageHeight = () => {
     if (windowWidth <= 480) return 250;
@@ -60,6 +61,14 @@ const Home = () => {
     },
     sectionBox: {
       backgroundColor: '#ffffff',
+      padding: windowWidth <= 480 ? '1rem' : '2rem',
+      borderRadius: 18,
+      width: '100%',
+      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.07)',
+      transition: 'all 0.3s ease-in-out',
+    },
+    sectionBoxss: {
+      //backgroundColor: '#ffffff',
       padding: windowWidth <= 480 ? '1rem' : '2rem',
       borderRadius: 18,
       width: '100%',
@@ -103,7 +112,7 @@ const Home = () => {
         <img src={mainImg} alt="CODE4CHANGE Logo" style={styles.mainimg} />
         </div>
 
-        <div style={styles.sectionBox} id="sponsors">
+        <div style={styles.sectionBoxss} id="sponsors">
           <h2 style={styles.heading}>Sponsored By</h2>
           <div style={styles.sponsorRow}>
             <img src="https://via.placeholder.com/150x80?text=Sponsor+1" alt="Sponsor 1" style={styles.sponsorImg} />
@@ -145,7 +154,7 @@ const Home = () => {
         <div style={styles.sectionBox} id="prizepool">
           <h3 style={styles.heading}>🏆 Prize Pool</h3>
           <p style={styles.text}>
-            ₹50,000+ worth exciting prizes and goodies to be won!<br />
+            ₹30,000+ worth exciting prizes and goodies to be won!<br />
             Certificates, swags, and more for all finalists.
           </p>
         </div>
@@ -192,7 +201,16 @@ const Home = () => {
             <li>🧑‍🤝‍🧑 All team members must enter the same team name and be from the same college.</li>
             <li>🪪 College ID card is mandatory (original only).</li>
             <li>🧑‍🤝‍🧑 Inter-specialization teams are also allowed.</li>
-            <li>🎫 QR ticket is required for entry – check <a href="https://lu.ma/hbwkmczv" target="_blank" rel="noopener noreferrer">lu.ma/hbwkmczv</a> after selection.</li>
+            <li>🎫 QR ticket is required for entry. check <a
+                href="https://lu.ma/event/evt-LBKA6lBgRbJ6o6l"
+                class="luma-checkout--button"
+                data-luma-action="checkout"
+                data-luma-event-id="evt-LBKA6lBgRbJ6o6l"
+              >
+                QR Tickets
+              </a>
+
+              <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script></li>
             <li>❌ No copying or using old projects (even your own).</li>
             <li>🚫 Any form of plagiarism or code-of-conduct violation will lead to disqualification.</li>
             <li>📜 Final decisions rest with the organizing committee.</li>

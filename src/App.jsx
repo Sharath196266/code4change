@@ -14,10 +14,6 @@ function App() {
       <Route path="/home" element={<Home />} /> 
       <Route path="/main" element={<Home />} />
       <Route path="/register" element={<RegistrationForm />} />
-      <Route path="/step1_personal" element={<Step1_Personal />} />
-      <Route path="/step2_team" element={<Step2_Team />} />
-      <Route path="/step3_idea" element={<Step3_Idea />} />
-      <Route path="/step4_payment" element={<Step4_Payment />} />
     </Routes>
   );
 }

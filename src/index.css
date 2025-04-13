@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: 'rgb(207, 220, 252)';
+  background-color: rgba(207, 220, 252);
   
   min-height: 100vh;
   display: flex;
@@ -28,7 +28,7 @@ a:hover {
 html, body {
   margin: 0;
   padding: 0;
-  background-color: rgb(207, 220, 252); /* ✅ Match your page background */
+  background-color: rgba(207, 220, 252); /* ✅ Match your page background */
   min-height: 100%;
 }
 
@@ -67,7 +67,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #4375a1;
-    background-color: #ffffff;
+    background-color: rgba(207, 220, 252);
   }
   a:hover {
     color: #747bff;

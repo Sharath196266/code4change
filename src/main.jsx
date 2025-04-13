@@ -1,6 +1,6 @@
 import { StrictMode, useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; // ✅ import this
+import { HashRouter } from 'react-router-dom'; // ✅ Change to HashRouter
 import './index.css';
 import App from './App.jsx';
 import PreLoader from './components/PreLoader.jsx';
@@ -21,9 +21,9 @@ function PreloaderWrapper() {
       {loading ? (
         <PreLoader />
       ) : (
-        <BrowserRouter> {/* ✅ wrap App here */}
+        <HashRouter >
           <App />
-        </BrowserRouter>
+        </HashRouter>
       )}
     </div>
   );

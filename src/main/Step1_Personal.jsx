@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 
 const Step1_Personal = ({ values, handleChange, nextStep, skipToPayment }) => {
@@ -10,6 +10,11 @@ const Step1_Personal = ({ values, handleChange, nextStep, skipToPayment }) => {
       nextStep(); // Continue to team details (Step 2)
     }
   };
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  
 
   return (
     <>
@@ -74,13 +79,14 @@ const Step1_Personal = ({ values, handleChange, nextStep, skipToPayment }) => {
           />
 
           {/* GitHub Profile */}
-          <label style={styles.label}>GitHub Profile (optional):</label>
+          <label style={styles.label}>GitHub Profile:</label>
           <input
             type="url"
             value={values.github}
             onChange={(e) => handleChange("github", e.target.value)}
             style={styles.input}
             placeholder="https://github.com/your-username"
+            required
           />
 
           {/* Event Selection */}
@@ -89,7 +95,7 @@ const Step1_Personal = ({ values, handleChange, nextStep, skipToPayment }) => {
             value={values.event}
             onChange={(e) => handleChange("event", e.target.value)}
             required
-            style={{ ...styles.input, backgroundColor: "#f9f9f9", cursor: "pointer" }}
+            style={{ ...styles.input, backgroundColor: "#f9f9f9", color:"black", height:50, cursor: "pointer" }}
           >
             <option value="">-- Select an Event --</option>
             <option value="Hackathon">Hackathon</option>
@@ -109,7 +115,7 @@ const Step1_Personal = ({ values, handleChange, nextStep, skipToPayment }) => {
 // 💅 Styles
 const styles = {
   container: {
-    marginTop: "80px",
+    marginTop: "100px",
     padding: "30px",
     backgroundColor: "rgb(207, 220, 252)",
     minHeight: "100vh",
