@@ -188,6 +188,44 @@ const Home = () => {
             💬 Interactive sessions and mentoring to refine your ideas
           </p>
         </div>
+        {/* 🚨 Why You Shouldn’t Miss It */}
+          <div style={styles.sectionBox}>
+            <h3 style={styles.heading}>🚨 Why You Shouldn’t Miss It</h3>
+            <p style={styles.text}>
+              🚀 A chance to transform your ideas into impactful solutions<br />
+              💬 Collaborate with like-minded individuals and sharpen your teamwork skills<br />
+              🛠️ Build real-world tech that addresses real-world challenges<br />
+              🏆 Win exciting prizes and earn valuable recognition<br />
+              🎁 Goodies for All Participants<br />
+              📣 Assemble your squad. 💡 Ignite your creativity. 🔥 Let innovation lead the way.
+            </p>
+            <p style={{ ...styles.text, fontWeight: 600, marginTop: '1rem' }}>
+              Hackathon 2025 – Where ideas turn into impact!
+            </p>
+          </div>
+
+          {/* 🧪 Judging Criteria */}
+          <div style={styles.sectionBox}>
+            <h3 style={styles.heading}>🧪 Judging Criteria</h3>
+            <p style={styles.text}>
+              ✅ Prototype submission is mandatory<br />
+              💡 Innovation & Originality<br />
+              🎨 Creativity & Implementation<br />
+              🖥️ Presentation & Demo<br />
+              🧑‍💻 User Interface Design and Experience
+            </p>
+          </div>
+
+          {/* 🔌 Resources Provided */}
+          <div style={styles.sectionBox}>
+            <h3 style={styles.heading}>🔌 Resources Provided</h3>
+            <p style={styles.text}>
+              ⚡ High-speed internet connection<br />
+              🔋 Power outlets for all teams<br />
+              🍽️ Refreshments and food throughout the event.
+            </p>
+          </div>
+
 
         <div style={styles.sectionBox} id="terms">
           <h3 style={styles.heading}>📜 Terms & Conditions</h3>
@@ -221,20 +259,13 @@ const Home = () => {
 
 
         <div style={styles.sectionBox} id="contact">
-  <h3 style={styles.heading}>📞 Contact Us</h3>
-  <p style={styles.text}>
-    📧 Email: <a href="mailto:sharath7hn@gmail.com">sharath7hn@gmail.com</a><br />
-    📱 Phone: +91-7204022677 (Student Coordinator)<br />
-    🌐 Website: <a href="https://www.gechassan.ac.in" target="_blank" rel="noopener noreferrer">www.gechassan.ac.in</a>
-  </p>
-  <br />
-  <h4 style={{ ...styles.heading, fontSize: styles.heading.fontSize - 2 }}>👥 Contact the Organizers</h4>
-  <p style={styles.text}>
-    👨‍🏫 Dr. Vasantha Kumara M – Placement Officer – 📱 +91 99026 77199<br />
-    👨‍💼 B R Adithya – 📱 +91 86182 36719<br />
-    👨‍💻 Sharath H N – 📱 +91 72040 22677
-  </p>
-</div>
+          <h4 style={{ ...styles.heading, fontSize: styles.heading.fontSize - 2 }}>📞 Contact Us</h4>
+          <p style={styles.text}>
+            👨‍🏫 Dr. Vasantha Kumara M – Placement Officer – 📱 +91 99026 77199<br />
+            👨‍💼 B R Adithya – 📱 +91 86182 36719<br />
+            👨‍💻 Sharath H N – 📱 +91 72040 22677
+          </p>
+        </div>
 
 <div style={styles.sectionBox} id="location">
   <h3 style={styles.heading}>📍 Location</h3>

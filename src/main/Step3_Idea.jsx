@@ -69,7 +69,7 @@ const Step3_Idea = ({ nextStep, prevStep, handleChange, handleFileChange, values
           />
 
           {/* File Upload */}
-          <label style={styles.label}>Upload PPT File (Optional):</label>
+          <label style={styles.label}>Upload PPT File:</label>
           <input
               type="file"
               accept=".ppt,.pptx,.pdf"
