@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import mainImg from '../assets/code4changelogomain.png';
 import { useLocation } from 'react-router-dom';
+import svl_logo from "../assets/svl_logo.png"
+import clg_logo from "../assets/college_logo.png"
+import avcms_logo from "../assets/avsms.png"
+import map from "../assets/map.png"
+import prizepool from "../assets/prizepool.png"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -35,6 +40,41 @@ const Home = () => {
   };
 
   const styles = {
+    presentedLogo: {
+      width: windowWidth <= 480 ? 160 : 220,
+      height: 'auto',
+      objectFit: 'contain',
+      backgroundColor: 'transparent',
+      borderRadius: 0,
+      padding: 0,
+      display: 'block',
+      margin: '0 auto',
+      marginBottom:20,
+    },
+    sponsorLogo: {
+      width: windowWidth <= 480 ? 100 : 180,
+      height: 'auto',
+      objectFit: 'contain',
+      backgroundColor: 'transparent',
+      borderRadius: 10,
+      padding: 5,
+    },
+    mapImage: {
+      width: '100%',
+      maxWidth: 500,
+      height: 'auto',
+      objectFit: 'contain',
+      display: 'block',
+      margin: '0 auto',
+    },  
+    PrizeImg: {
+      width: '100%',
+      maxWidth: windowWidth <= 480 ? 250 : windowWidth <= 768 ? 350 : 450,
+      height: 'auto',
+      objectFit: 'contain',
+      display: 'block',
+      margin: '0 auto',
+    },     
     page: {
       backgroundColor: 'rgb(207, 220, 252)',
       minHeight: '100vh',
@@ -94,14 +134,6 @@ const Home = () => {
       flexWrap: 'wrap',
       gap: '1.2rem',
     },
-    sponsorImg: {
-      width: windowWidth <= 480 ? 90 : 130,
-      height: 80,
-      objectFit: 'contain',
-      backgroundColor: '#f4f4f4',
-      borderRadius: 10,
-      padding: 10,
-    },
   };
 
   return (
@@ -113,16 +145,17 @@ const Home = () => {
         </div>
 
         <div style={styles.sectionBoxss} id="sponsors">
+        <h2 style={{ ...styles.heading, marginTop: 40 }}>Presented By</h2>
+          <div style={styles.sponsorRow}>
+          <a href="http://www.gechassan.ac.in/?q=cse" target="_blank">
+            <img src={clg_logo} alt="Powered 1" style={styles.presentedLogo} /></a>
+          </div>
           <h2 style={styles.heading}>Sponsored By</h2>
           <div style={styles.sponsorRow}>
-            <img src="https://via.placeholder.com/150x80?text=Sponsor+1" alt="Sponsor 1" style={styles.sponsorImg} />
-            <img src="https://via.placeholder.com/150x80?text=Sponsor+2" alt="Sponsor 2" style={styles.sponsorImg} />
-          </div>
-
-          <h2 style={{ ...styles.heading, marginTop: 40 }}>Powered By</h2>
-          <div style={styles.sponsorRow}>
-            <img src="https://via.placeholder.com/150x80?text=Powered+1" alt="Powered 1" style={styles.sponsorImg} />
-            <img src="https://via.placeholder.com/150x80?text=Powered+2" alt="Powered 2" style={styles.sponsorImg} />
+            <a href="https://jsdl.in/DT-99SF2XEKAR3" target="_blank">
+            <img src={svl_logo} alt="Sponsor 1" style={styles.sponsorLogo} /> </a>
+            <a href="https://avmcs.com.au" target="_blank">
+            <img src={avcms_logo} alt="Sponsor 2" style={styles.sponsorLogo} /></a>
           </div>
         </div>
 
@@ -132,31 +165,23 @@ const Home = () => {
             Code4Change is the flagship tech fest of Government Engineering College, Hassan, featuring a national-level Hackathon and an intense Tech Quiz. It’s a platform to code, innovate, and showcase your problem-solving skills while competing with top student talent across India.
           </h3>
         </div>
+        <div style={styles.sectionBox} id="timeline">
+          <img
+            src={map}
+            alt="Timeline map"
+            style={styles.mapImage}
+            loading="lazy"
+          />
+          </div>
 
-
-        <div style={styles.sectionBox} id="events">
-          <h3 style={styles.heading}>🎯 Main Events</h3>
-          <p style={styles.text}>
-            💡 <strong>Hackathon 2025</strong><br />
-            Team Size: 2–4 members (same college)<br />
-            Coding Marathon: May 9, 4:00 PM – May 10, 7:00 AM (overnight)<br />
-            Final Presentations: May 10, 9:00 AM – 1:00 PM
-          </p>
-          <br />
-          <p style={styles.text}>
-            🧠 <strong>Tech Quiz</strong><br />
-            Solo Participation<br />
-            1st Round (Online): April 28, 1:00 PM<br />
-            Final Rounds: May 10, on campus
-          </p>
-        </div>
 
         <div style={styles.sectionBox} id="prizepool">
-          <h3 style={styles.heading}>🏆 Prize Pool</h3>
-          <p style={styles.text}>
-            ₹30,000+ worth exciting prizes and goodies to be won!<br />
-            Certificates, swags, and more for all finalists.
-          </p>
+        <img
+            src={prizepool}
+            alt="Prizepool"
+            style={styles.PrizeImg}
+            loading="lazy"
+          />
         </div>
 
         <div style={styles.sectionBox} id="tracks">

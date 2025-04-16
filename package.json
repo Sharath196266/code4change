@@ -5,15 +5,16 @@
   "type": "module",
   "homepage": "https://code4change.compassgech.space",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
+    "framer-motion": "^12.7.3",
     "lucide-react": "^0.487.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
