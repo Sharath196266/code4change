@@ -154,10 +154,10 @@ const Home = () => {
       padding: '20px',
       display: 'flex',
       alignItems: 'flex-start',
-      gap: '16px',
+      gap: '20px',
       maxWidth: '600px',
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-      margin: '20px auto',
+      margin: '2px auto',
       transition: 'transform 0.2s',
       cursor: 'pointer',
       ':hover': {
