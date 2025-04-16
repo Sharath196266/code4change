@@ -1,6 +1,9 @@
 .card:hover {
     background-color: rgba(207, 220, 252);
     color: white;
+    z-index: 2;
+    transform: scale(1.10);
+    
   }
   .card {
     background-color: #f0f6ff;
