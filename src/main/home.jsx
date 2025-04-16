@@ -107,6 +107,20 @@ const Home = () => {
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.07)',
       transition: 'all 0.3s ease-in-out',
     },
+    grid: {
+      display: 'grid',
+      gridTemplateColumns: windowWidth < 768 ? '1fr' : '1fr 1fr',
+      gap: '1.5rem',
+      marginTop: '1rem',
+    },
+    sectionBoxTrack: {
+      backgroundColor: '#eaf2ff', // soothing light blue background
+      padding: windowWidth <= 480 ? '1rem' : '2rem',
+      borderRadius: 18,
+      width: '100%',
+      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.07)',
+      transition: 'all 0.3s ease-in-out',
+    },
     sectionBoxss: {
       //backgroundColor: '#ffffff',
       padding: windowWidth <= 480 ? '1rem' : '2rem',
@@ -134,6 +148,37 @@ const Home = () => {
       flexWrap: 'wrap',
       gap: '1.2rem',
     },
+    card: {
+      backgroundColor: '#f0f6ff', // soft blue background like the image
+      borderRadius: '16px',
+      padding: '20px',
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '16px',
+      maxWidth: '600px',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+      margin: '20px auto',
+      transition: 'transform 0.2s',
+      cursor: 'pointer',
+      ':hover': {
+  transform: 'scale(1.02)',
+},
+    },
+    icon: {
+      fontSize: '40px',
+      flexShrink: 0,
+    },
+    title: {
+      fontSize: '20px',
+      fontWeight: '600',
+      color: '#1a1a1a',
+      marginBottom: '10px',
+    },
+    description: {
+      fontSize: '16px',
+      color: '#4a5568',
+      lineHeight: '1.6',
+    }
   };
 
   return (
@@ -184,17 +229,36 @@ const Home = () => {
           />
         </div>
 
-        <div style={styles.sectionBox} id="tracks">
-          <h3 style={styles.heading}>🧪 Hackathon Tracks</h3>
-          <p style={styles.text}>
-            HealthTech 🏥 – Better diagnostics & healthcare access<br />
-            AgriTech 🌾 – Smart, sustainable agriculture<br />
-            FinTech 💸 – Secure, inclusive financial tech<br />
-            Robotics/IoT & Mobility 🤖 – Automation, smart devices, mobility<br />
-            Sustainability 🌱 – Green energy & waste management<br />
-            EduTech 📚 – Enhanced learning through technology
-          </p>
+        <div style={styles.sectionBoxTrack} id="tracks">
+          <h3 style={styles.title}>Hackathon Tracks</h3>
+          <div style={styles.grid}>
+            <div style={styles.card}>
+              <div style={styles.icon}>📚</div>
+              <p style={styles.description}><strong>EduTech</strong> – Reimagine education through interactive, accessible tech. Think virtual labs, AI tutors, or language apps!</p>
+            </div>
+            <div style={styles.card}>
+              <div style={styles.icon}>🏥</div>
+              <p style={styles.description}><strong>HealthTech</strong> – Innovate healthcare with smart diagnostics, remote monitoring, or digital health tools.</p>
+            </div>
+            <div style={styles.card}>
+              <div style={styles.icon}>💸</div>
+              <p style={styles.description}><strong>FinTech</strong> – Build secure, easy-to-use banking or payment solutions. Focus on trust, speed, and inclusion.</p>
+            </div>
+            <div style={styles.card}>
+              <div style={styles.icon}>🤖</div>
+              <p style={styles.description}><strong>Robotics/IoT & Mobility</strong> – Dive into automation, smart homes, wearables, and intelligent mobility systems.</p>
+            </div>
+            <div style={styles.card}>
+              <div style={styles.icon}>🌱</div>
+              <p style={styles.description}><strong>Sustainability</strong> – Design tech to reduce waste, generate clean energy, and protect the planet.</p>
+            </div>
+            <div style={styles.card}>
+              <div style={styles.icon}>🌾</div>
+              <p style={styles.description}><strong>AgriTech</strong> – Use sensors, AI, or drones to support farmers, boost yields, and ensure food security.</p>
+            </div>
+          </div>
         </div>
+
 
         <div style={styles.sectionBox} id="fees">
           <h3 style={styles.heading}>🎟️ Entry Fees</h3>
