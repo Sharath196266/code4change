@@ -17,14 +17,14 @@ export default function Navbar({ loggedIn = false }) {
       <div className="navbar-container">
         {/* Logo */}
         <div className="logo">
-          <a href="/home">
+          <a href="#/home">
             <img src={logo} alt="Logo" className="logo-img" />
           </a>
         </div>
 
         {/* Desktop Nav */}
         <nav className="nav-links">
-          <a href="/home">HOME</a>
+          <a href="#/home">HOME</a>
           <a href="#/home#sponsors">SPONSORS</a>
           <a href="#/home#about">ABOUT</a>
           <a href="#/home#prizepool">PRIZES</a>

@@ -7,6 +7,7 @@ import clg_logo from "../assets/college_logo.png"
 import avcms_logo from "../assets/avsms.png"
 import map from "../assets/map.png"
 import prizepool from "../assets/prizepool.png"
+import "../styles/home.css"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -160,9 +161,6 @@ const Home = () => {
       margin: '2px auto',
       transition: 'transform 0.2s',
       cursor: 'pointer',
-      ':hover': {
-  transform: 'scale(1.02)',
-},
     },
     icon: {
       fontSize: '40px',
@@ -210,7 +208,7 @@ const Home = () => {
             Code4Change is the flagship tech fest of Government Engineering College, Hassan, featuring a national-level Hackathon and an intense Tech Quiz. It’s a platform to code, innovate, and showcase your problem-solving skills while competing with top student talent across India.
           </h3>
         </div>
-        <div style={styles.sectionBox} id="timeline">
+        <div style={styles.sectionBox} id="events">
           <img
             src={map}
             alt="Timeline map"
@@ -232,27 +230,27 @@ const Home = () => {
         <div style={styles.sectionBoxTrack} id="tracks">
           <h3 style={styles.title}>Hackathon Tracks</h3>
           <div style={styles.grid}>
-            <div style={styles.card}>
+            <div className="card">
               <div style={styles.icon}>📚</div>
               <p style={styles.description}><strong>EduTech</strong> – Reimagine education through interactive, accessible tech. Think virtual labs, AI tutors, or language apps!</p>
             </div>
-            <div style={styles.card}>
+            <div className="card">
               <div style={styles.icon}>🏥</div>
               <p style={styles.description}><strong>HealthTech</strong> – Innovate healthcare with smart diagnostics, remote monitoring, or digital health tools.</p>
             </div>
-            <div style={styles.card}>
+            <div className="card">
               <div style={styles.icon}>💸</div>
               <p style={styles.description}><strong>FinTech</strong> – Build secure, easy-to-use banking or payment solutions. Focus on trust, speed, and inclusion.</p>
             </div>
-            <div style={styles.card}>
+            <div className="card">
               <div style={styles.icon}>🤖</div>
               <p style={styles.description}><strong>Robotics/IoT & Mobility</strong> – Dive into automation, smart homes, wearables, and intelligent mobility systems.</p>
             </div>
-            <div style={styles.card}>
+            <div className="card">
               <div style={styles.icon}>🌱</div>
               <p style={styles.description}><strong>Sustainability</strong> – Design tech to reduce waste, generate clean energy, and protect the planet.</p>
             </div>
-            <div style={styles.card}>
+            <div className="card">
               <div style={styles.icon}>🌾</div>
               <p style={styles.description}><strong>AgriTech</strong> – Use sensors, AI, or drones to support farmers, boost yields, and ensure food security.</p>
             </div>
