@@ -323,9 +323,9 @@ const Home = () => {
             lineHeight: 1.7 
           }}>
             <li>🧑‍🎓 Participants must be currently enrolled students.</li>
-            <li>🧑‍🤝‍🧑 All team members must enter the same team name and be from the same college.</li>
+            <li>🧑‍🤝‍🧑 All team members must enter the same team name.</li>
             <li>🪪 College ID card is mandatory (original only).</li>
-            <li>🧑‍🤝‍🧑 Inter-specialization teams are also allowed.</li>
+            <li>🧑‍🤝‍🧑 Inter-College and Inter Branch teams are also allowed.</li>
             <li>🎫 QR ticket is required for entry. check <a
                 href="https://lu.ma/event/evt-LBKA6lBgRbJ6o6l"
                 class="luma-checkout--button"
