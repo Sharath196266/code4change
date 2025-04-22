@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { submitFormData } from "../submitForm";
 import { useNavigate } from "react-router-dom";
-
+import "../styles/loader.css"
 // 📷 Import images properly
 import QR_Hackathon from "../assets/GooglePay_QR_600.png";
 import QR_Quiz from "../assets/GooglePay_QR _50.png";
@@ -11,6 +11,7 @@ const Step4_Payment = ({ values, handleChange, handleFileChange, submitForm, pre
   const [showPreview, setShowPreview] = useState(false);
   const isHackathon = values.event === "Hackathon";
   const navigate = useNavigate();
+  const [loadingh, setLoadingh] = useState(false);
   
 
   const handleSubmit = (e) => {
@@ -28,13 +29,20 @@ const Step4_Payment = ({ values, handleChange, handleFileChange, submitForm, pre
   }, []);
   
   const finalSubmit = async () => {
-    const response = await submitFormData(values);
-    if (response.success) {
-      alert("✅ Form submitted successfully!");
-      navigate("/");
-      
-    } else {
-      alert("❌ Submission failed: " + response.message);
+    try {
+      setLoadingh(true);
+      const response = await submitFormData(values);
+      if (response.success) {
+        alert("✅ Form submitted successfully!");
+        navigate("/");
+      } else {
+        alert("❌ Submission failed: " + response.message);
+      }
+    } catch (error) {
+      alert("❌ Something went wrong. Please try again later.");
+      console.error(error);
+    } finally {
+      setLoadingh(false);
     }
   };
 
@@ -55,6 +63,12 @@ const Step4_Payment = ({ values, handleChange, handleFileChange, submitForm, pre
 
   return (
     <>
+    {loadingh && (
+      <div className="loader-wrapper">
+        <div className="loader"></div>
+      </div>
+    )}
+
       <Navbar loggedIn />
       <div style={styles.container}>
         <button onClick={prevStep} style={styles.backButton}>⬅ Back</button>
@@ -139,7 +153,7 @@ const Step4_Payment = ({ values, handleChange, handleFileChange, submitForm, pre
               )}
             </div>
 
-            <button onClick={finalSubmit} style={styles.submitButton}>✅ Confirm & Submit</button>
+            <button onClick={finalSubmit} style={styles.submitButton}>{loadingh ? "Loading..." : "✅ Confirm & Submit"} </button>
           </>
         ) : (
           <form onSubmit={handleSubmit} style={styles.form}>
