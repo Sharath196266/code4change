@@ -69,12 +69,11 @@ const Step3_Idea = ({ nextStep, prevStep, handleChange, handleFileChange, values
           />
 
           {/* File Upload */}
-          <label style={styles.label}>Upload PPT File:</label>
+          <label style={styles.label}>Upload PPT File (Optional):</label>
           <input
               type="file"
               accept=".ppt,.pptx,.pdf"
               onChange={(e) => handleFileChange(e, "ppt")}
-              required
               style={styles.input}
             />
           {/* accept=".ppt,.pptx,.pdf" */}
