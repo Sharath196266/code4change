@@ -8,6 +8,8 @@ import avcms_logo from "../assets/avsms.png"
 import map from "../assets/map.png"
 import prizepool from "../assets/prizepool.png"
 import "../styles/home.css"
+import glue_logo from "../assets/glue_Logo.png"
+import compass_logo from "../assets/compass_logo.png"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -42,7 +44,29 @@ const Home = () => {
 
   const styles = {
     presentedLogo: {
-      width: windowWidth <= 480 ? 160 : 220,
+      width: windowWidth <= 480 ? 180 : 200,
+      height: 'auto',
+      objectFit: 'contain',
+      backgroundColor: 'transparent',
+      borderRadius: 0,
+      padding: 0,
+      display: 'block',
+      margin: '0 auto',
+      marginBottom:18,
+    },
+    presentedLogoCompass: {
+      width: windowWidth <= 480 ? 100 : 200,
+      height: 'auto',
+      objectFit: 'contain',
+      backgroundColor: 'transparent',
+      borderRadius: 0,
+      padding: -10,
+      display: 'block',
+      margin: '0 auto',
+      marginBottom:20,
+    },
+    presentedLogoGlue: {
+      width: windowWidth <= 480 ? 90 : 140,
       height: 'auto',
       objectFit: 'contain',
       backgroundColor: 'transparent',
@@ -53,7 +77,7 @@ const Home = () => {
       marginBottom:20,
     },
     sponsorLogo: {
-      width: windowWidth <= 480 ? 100 : 180,
+      width: windowWidth <= 480 ? 100 : 220,
       height: 'auto',
       objectFit: 'contain',
       backgroundColor: 'transparent',
@@ -191,7 +215,11 @@ const Home = () => {
         <h2 style={{ ...styles.heading, marginTop: 40 }}>Presented By</h2>
           <div style={styles.sponsorRow}>
           <a href="http://www.gechassan.ac.in/?q=cse" target="_blank">
-            <img src={clg_logo} alt="Powered 1" style={styles.presentedLogo} /></a>
+            <img src={clg_logo} alt="Gec Hassan" style={styles.presentedLogo} /></a>
+            <a href="#home" target="_blank">
+            <img src={compass_logo} alt=" powered by compass -logo" style={styles.presentedLogoCompass} /></a>
+            <a href="#home" target="_blank">
+            <img src={glue_logo} alt="powered by Glue -logo" style={styles.presentedLogoGlue} /></a>
           </div>
           <h2 style={styles.heading}>Sponsored By</h2>
           <div style={styles.sponsorRow}>
