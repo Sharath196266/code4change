@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { submitFormData } from "../submitForm";
+import { useNavigate } from "react-router-dom";
 
 // 📷 Import images properly
 import QR_Hackathon from "../assets/GooglePay_QR_600.png";
@@ -9,6 +10,8 @@ import QR_Quiz from "../assets/GooglePay_QR _50.png";
 const Step4_Payment = ({ values, handleChange, handleFileChange, submitForm, prevStep }) => {
   const [showPreview, setShowPreview] = useState(false);
   const isHackathon = values.event === "Hackathon";
+  const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +31,8 @@ const Step4_Payment = ({ values, handleChange, handleFileChange, submitForm, pre
     const response = await submitFormData(values);
     if (response.success) {
       alert("✅ Form submitted successfully!");
-      // You can reset form or redirect here
+      navigate("/");
+      
     } else {
       alert("❌ Submission failed: " + response.message);
     }
