@@ -27,11 +27,11 @@ export const submitFormData = async (formData) => {
 
     // Upload files
     const ideaFileUrl = formData.ppt
-      ? await uploadFileToBucket('ideafiles', formData.ppt, `ppt-${Date.now()}-${formData.name}.pdf`)
+      ? await uploadFileToBucket('ideafiles', formData.ppt, `ppt-${formData.teamName}-${formData.idea}-${Date.now()}.pdf`)
       : '';
 
     const paymentProofUrl = formData.paymentProof
-      ? await uploadFileToBucket('paymentproofs', formData.paymentProof, `proof-${Date.now()}-${formData.name}.jpg`)
+      ? await uploadFileToBucket('paymentproofs', formData.paymentProof, `proof-${formData.name}-${formData.event}-${Date.now()}.jpg`)
       : '';
 
     if (isHackathon) {
