@@ -31,7 +31,7 @@ const Home = () => {
       const element = document.getElementById(id);
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          element.scrollIntoView({ behavior: 'auto', block: 'center' });
         }, 100);
       }
     }
@@ -230,8 +230,8 @@ const Home = () => {
         <img src={mainImg} alt="CODE4CHANGE Logo" style={styles.mainimg} />
         </div>
 
-        <div style={styles.sectionBoxss} id="sponsors">
-        <h2 style={{ ...styles.heading, marginTop: 20 }}>Presented By</h2>
+        <div style={styles.sectionBoxss} >
+        <h2 style={{ ...styles.heading, marginTop: 20 }}id="sponsors">Presented By</h2>
           <div style={styles.sponsorRow}>
           <a href="http://www.gechassan.ac.in/?q=cse" target="_blank">
             <img src={clg_logo} alt="Gec Hassan" style={styles.presentedLogo} /></a>
@@ -413,21 +413,23 @@ const Home = () => {
         </div>
 
 <div style={styles.sectionBox} id="location">
-  <h3 style={styles.heading}>📍 Location</h3>
   <div style={{
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: windowWidth <= 480 ? 'column' :'row',
     alignItems: 'center',
     gap: '1rem',
     marginBottom: '1rem'
   }}>
-    <p style={styles.text}>Government Engineering College, Hassan, Karnataka</p>
+    <div>  
+     <h3 style={styles.heading}>📍 Location</h3>
+    <p style={styles.text}>1st Floor, Library Block,<br></br> Government Engineering College, Hassan, Karnataka</p>
+    </div>
     <iframe
       title="Google Map"
       src="https://maps.google.com/maps?q=Government%20Engineering%20College,%20Hassan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      width="100%"
+      
       height="250"
-      style={{ border: 0, borderRadius: '10px', maxWidth: '600px' }}
+      style={{ border: 0, borderRadius: '10px', maxWidth: '600px' , width:windowWidth <= 480 ? "100%": "60%"}}
       allowFullScreen=""
       loading="lazy"
     ></iframe>
@@ -435,7 +437,7 @@ const Home = () => {
   
 </div>
 <p style={{fontSize: 14,
-  color: '#444',}}>2025 © Code4Change | All rights reserved.</p>
+  color: '#444',marginTop:5}}>2025 © Code4Change | All rights reserved.</p>
       </div>
     </div>
   );
