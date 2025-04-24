@@ -31,7 +31,7 @@ export const submitFormData = async (formData) => {
       : '';
 
     const paymentProofUrl = formData.paymentProof
-      ? await uploadFileToBucket('paymentproofs', formData.paymentProof, `proof-${formData.name}-${formData.event}-${Date.now()}.jpg`)
+      ? await uploadFileToBucket('paymentproofs', formData.paymentProof, `proof-${formData.fullName}-${formData.event}-${Date.now()}.jpg`)
       : '';
 
     if (isHackathon) {
