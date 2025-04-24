@@ -10,6 +10,9 @@ import prizepool from "../assets/prizepool.png"
 import "../styles/home.css"
 import glue_logo from "../assets/glue_Logo.png"
 import compass_logo from "../assets/compass_logo.png"
+import testmskills_logo from "../assets/TMS LOGO.png"
+import hackculture_logo from "../assets/hackculture.png"
+import hassanview_logo from "../assets/hassanview2.png"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -78,6 +81,22 @@ const Home = () => {
     },
     sponsorLogo: {
       width: windowWidth <= 480 ? 100 : 220,
+      height: 'auto',
+      objectFit: 'contain',
+      backgroundColor: 'transparent',
+      borderRadius: 10,
+      padding: 5,
+    },
+    sponsorLogoSvl: {
+      width: windowWidth <= 480 ? 60 : 140,
+      height: 'auto',
+      objectFit: 'contain',
+      backgroundColor: 'transparent',
+      borderRadius: 10,
+      padding: 5,
+    },
+    sponsorLogo2: {
+      width: windowWidth <= 480 ? 120 : 240,
       height: 'auto',
       objectFit: 'contain',
       backgroundColor: 'transparent',
@@ -212,7 +231,7 @@ const Home = () => {
         </div>
 
         <div style={styles.sectionBoxss} id="sponsors">
-        <h2 style={{ ...styles.heading, marginTop: 40 }}>Presented By</h2>
+        <h2 style={{ ...styles.heading, marginTop: 20 }}>Presented By</h2>
           <div style={styles.sponsorRow}>
           <a href="http://www.gechassan.ac.in/?q=cse" target="_blank">
             <img src={clg_logo} alt="Gec Hassan" style={styles.presentedLogo} /></a>
@@ -221,12 +240,23 @@ const Home = () => {
             <a href="#home" target="_blank">
             <img src={glue_logo} alt="powered by Glue -logo" style={styles.presentedLogoGlue} /></a>
           </div>
-          <h2 style={styles.heading}>Sponsored By</h2>
-          <div style={styles.sponsorRow}>
+          <h3 style={styles.heading}>Sponsored By</h3>
+          <div style={{...styles.sponsorRow, marginBottom:20}}>
             <a href="https://jsdl.in/DT-99SF2XEKAR3" target="_blank">
-            <img src={svl_logo} alt="Sponsor 1" style={styles.sponsorLogo} /> </a>
+            <img src={svl_logo} alt="Sponsor 1" style={styles.sponsorLogoSvl} /> </a>
             <a href="https://avmcs.com.au" target="_blank">
             <img src={avcms_logo} alt="Sponsor 2" style={styles.sponsorLogo} /></a>
+          </div>
+          <h4 style={styles.heading}>Platform Partners</h4>
+          <div style={styles.sponsorRow}>
+            <a href="https://www.hackculture.in" target="_blank">
+            <img src={hackculture_logo} alt="hackculture" style={styles.sponsorLogo2} /> </a>
+            <a href="https://testmyskills.ai" target="_blank">
+            <img src={testmskills_logo} alt="testmyskills" style={styles.sponsorLogo2} /></a>
+          </div>
+          <div style={styles.sponsorRow}>
+            <a href="https://www.instagram.com/hassanview_/" target="_blank">
+            <img src={hassanview_logo} alt="HassanView Instagram" style={styles.sponsorLogo2} /> </a>
           </div>
         </div>
 
