@@ -60,6 +60,7 @@ export const submitFormData = async (formData) => {
           payment_proof: paymentProofUrl,
           track: formData.track,
           numMem:formData.numMembers+1,
+          team_name:formData.teamName,
         }
       ]);
 
