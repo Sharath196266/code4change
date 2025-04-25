@@ -13,6 +13,7 @@ import compass_logo from "../assets/compass_logo.png"
 import testmskills_logo from "../assets/TMS LOGO.png"
 import hackculture_logo from "../assets/hackculture.png"
 import hassanview_logo from "../assets/hassanview2.png"
+import enginkan_logo from "../assets/enginkan_log.png"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -257,6 +258,8 @@ const Home = () => {
           <div style={styles.sponsorRow}>
             <a href="https://www.instagram.com/hassanview_/" target="_blank">
             <img src={hassanview_logo} alt="HassanView Instagram" style={styles.sponsorLogo2} /> </a>
+            <a href="https://www.youtube.com/c/EngineeringinKannada" target="_blank">
+            <img src={enginkan_logo} alt="engineering in kannada youtube" style={styles.sponsorLogo2} /> </a>
           </div>
         </div>
 
