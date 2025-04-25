@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import svl_logo from "../assets/svl_logo.png"
 import clg_logo from "../assets/college_logo.png"
 import avcms_logo from "../assets/avsms.png"
-import map from "../assets/map.png"
 import prizepool from "../assets/prizepool.png"
 import "../styles/home.css"
 import glue_logo from "../assets/glue_Logo.png"
@@ -14,6 +13,7 @@ import testmskills_logo from "../assets/TMS LOGO.png"
 import hackculture_logo from "../assets/hackculture.png"
 import hassanview_logo from "../assets/hassanview2.png"
 import enginkan_logo from "../assets/enginkan_log.png"
+import "../styles/timelinecss.css"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -37,6 +37,42 @@ const Home = () => {
       }
     }
   }, [location]);
+
+  useEffect(() => {
+    const items = document.querySelectorAll(".timeline li");
+  
+    const isElementInViewport = (el) => {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    };
+  
+    const callbackFunc = () => {
+      items.forEach((item) => {
+        if (isElementInViewport(item)) {
+          if (!item.classList.contains("in-view")) {
+            item.classList.add("in-view");
+          }
+        }
+        else if(item.classList.contains("in-view")){
+          item.classList.remove("in-view");
+        }
+      });
+    };
+  
+    window.addEventListener("load", callbackFunc);
+    window.addEventListener("scroll", callbackFunc);
+  
+    return () => {
+      window.removeEventListener("load", callbackFunc);
+      window.removeEventListener("scroll", callbackFunc);
+    };
+  }, []);
+  
   
 
   const getImageHeight = () => {
@@ -104,14 +140,6 @@ const Home = () => {
       borderRadius: 10,
       padding: 5,
     },
-    mapImage: {
-      width: '100%',
-      maxWidth: 500,
-      height: 'auto',
-      objectFit: 'contain',
-      display: 'block',
-      margin: '0 auto',
-    },  
     PrizeImg: {
       width: '100%',
       maxWidth: windowWidth <= 480 ? 250 : windowWidth <= 768 ? 350 : 450,
@@ -147,6 +175,14 @@ const Home = () => {
     sectionBox: {
       backgroundColor: '#ffffff',
       padding: windowWidth <= 480 ? '1rem' : '2rem',
+      borderRadius: 18,
+      width: '100%',
+      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.07)',
+      transition: 'all 0.3s ease-in-out',
+    },
+    sectionBoxTimeline: {
+      backgroundColor: '#f0f6ff',
+      padding: windowWidth <= 480 ? '0.2rem' : '1rem',
       borderRadius: 18,
       width: '100%',
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.07)',
@@ -269,14 +305,70 @@ const Home = () => {
             Code4Change is the flagship tech fest of Government Engineering College, Hassan, featuring a national-level Hackathon and an intense Tech Quiz. It’s a platform to code, innovate, and showcase your problem-solving skills while competing with top student talent across India.
           </h3>
         </div>
-        <div style={styles.sectionBox} id="events">
-          <img
-            src={map}
-            alt="Timeline map"
-            style={styles.mapImage}
-            loading="lazy"
-          />
-          </div>
+        <div style={styles.sectionBoxTimeline} id="events">
+          <center>
+          <h5>📍🕒 Event Timeline</h5></center>
+          <div class="timeline">
+            <ul>
+              <li>
+                <div class="regester-timeline">
+              <time>April 12, 2025</time>
+                  
+                  <p>🔓 Registrations Open</p>
+                
+                </div>
+              </li>  
+              <li>
+                <div>
+              <time>May 4, 2025</time>
+                  
+                  <p>🚨 Last Date to Register and Idea & PPT Submission Deadline</p>
+               
+                </div>
+              </li>
+              <li>
+                <div>
+              <time>May 5, 2025</time>
+                 
+                  <p>📢 Hackathon Team Selection Announcement</p>
+                
+                </div>
+              </li>
+              <li>
+                <div>
+              <time>May 5, 2025</time>
+                  
+                  <p>🛠️ Prototype Development Phase: Begins after May 5, 2025</p>
+                
+                </div>
+              </li>
+              <li>
+                <div>
+              <time>May 6, 2025</time>
+                
+                  <p>📝 Selection Test for TechQuiz: Online test link will be sent to your registered email or whatsapp number.</p>
+                
+                </div>
+              </li>
+              <li>
+                <div>
+              <time dateTime='2025-5-9'>May 9, 2025</time>
+                  
+                  <p>✅ Check-in: May 9, 2025, at 3:00 PM | ⏱️ Event Time: May 9, 4:00 PM – May 10, 7:00 AM | 📍 Venue: Government Engineering College, Hassan</p>
+              
+                </div>
+              </li>
+              <li>
+                <div>
+              <time>May 10, 2025</time>
+                 
+                  <p>🧠 TechQuiz Final and 🎤 Final Project Presentation & Results</p>
+                
+                </div>
+              </li>
+            </ul>
+            </div>
+        </div>
 
 
         <div style={styles.sectionBox} id="prizepool">

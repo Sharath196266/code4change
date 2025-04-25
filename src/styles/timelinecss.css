@@ -1,0 +1,121 @@
+ *,
+ *::before,
+ *::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+ }
+ .timeline{
+    font : normal 16px/1.5 "Titillium Web", sans-serif;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+ }  
+ .timeline ul li{
+    list-style-type: none;
+    position: relative;
+    width: 6px;
+    padding-top:50px;
+    margin:0 auto;
+    background: #f4e3e3;
+ }
+
+ .timeline ul li::after {
+    content:"";
+    position: absolute;
+    left:50%;
+    bottom:0;
+    transform: translateX(-50%) rotate(45deg);
+    width:20px;
+    height:20px;
+    z-index:2;
+    background:#ffffff;
+ }
+
+ .timeline ul li div{
+    position: relative ;
+    bottom : 0;
+    width : 400px;
+    padding:20px; 
+    background: #fff;
+    box-shadow:4px 13px 30px 1px rgb(105, 137, 217);
+    border-radius: 5px;
+    display:flex;
+    align-items: center;
+ }
+ .timeline ul li div time{
+    position: absolute;
+    background: #f9bd3b;
+    width:130px;
+    height:30px;
+    top: -15px;
+    border-radius: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+ }
+
+ .timeline ul li div { 
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .timeline ul li div p{
+    text-align: center;
+ }
+
+ .timeline ul li div .regester-timeline{
+    margin-top: 10px;
+ }
+
+ .timeline ul li:nth-of-type(odd)>div{
+    left:45px;
+ }
+ .timeline ul li:nth-of-type(even)>div{
+    left:-439px;
+ }
+.timeline ul li div{
+    visibility: hidden;
+    opacity :0;
+    transition: all 0.5s ease-in-out;
+}
+.timeline ul li:nth-of-type(odd) div{
+    transform: translate3d(100px, -10px, 0)  rotate(10deg);
+ }
+ .timeline ul li:nth-of-type(even) div{
+    transform: translate3d(-100px, -10px, 0)  rotate(10deg);
+ }
+
+ .timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+ }
+
+ @media screen and (max-width:1110px){
+    .timeline ul li div {
+        width: 250px;
+        flex-direction: column;
+    }
+    .timeline ul li div p{
+        width:80%;
+        margin:10px;
+    }
+    .timeline ul li:nth-of-type(even)>div{
+        left:-289px;
+    }
+ }
+
+ @media screen and (max-width : 690px){
+    .timeline ul li {
+        margin-left : 20px;
+    }
+    .timeline ul li div {
+        width: calc(100vw - 130px);
+    }
+    .timeline ul li:nth-of-type(even)>div { 
+        left: 45px;
+    }
+ }
