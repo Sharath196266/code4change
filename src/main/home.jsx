@@ -32,7 +32,7 @@ const Home = () => {
       const element = document.getElementById(id);
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'auto', block: 'center' });
+          element.scrollIntoView({ behavior: 'auto', block: 'start' });
         }, 100);
       }
     }
@@ -181,6 +181,7 @@ const Home = () => {
       transition: 'all 0.3s ease-in-out',
     },
     sectionBoxTimeline: {
+      paddingTop:50,
       backgroundColor: '#f0f6ff',
       padding: windowWidth <= 480 ? '0.2rem' : '1rem',
       borderRadius: 18,
@@ -307,11 +308,12 @@ const Home = () => {
         </div>
         <div style={styles.sectionBoxTimeline} id="events">
           <center>
-          <h5>📍🕒 Event Timeline</h5></center>
+          <h4>📍🕒 Event Timeline</h4></center>
           <div class="timeline">
             <ul>
               <li>
                 <div class="regester-timeline">
+                  <br></br>
               <time>April 12, 2025</time>
                   
                   <p>🔓 Registrations Open</p>

@@ -16,7 +16,7 @@
     width: 6px;
     padding-top:50px;
     margin:0 auto;
-    background: #f4e3e3;
+    background: #96b3f5;
  }
 
  .timeline ul li::after {
@@ -28,7 +28,7 @@
     width:20px;
     height:20px;
     z-index:2;
-    background:#ffffff;
+    background:#b0c5f3;
  }
 
  .timeline ul li div{
@@ -37,7 +37,7 @@
     width : 400px;
     padding:20px; 
     background: #fff;
-    box-shadow:4px 13px 30px 1px rgb(105, 137, 217);
+    box-shadow:4px 13px 30px 1px rgb(106, 142, 233);
     border-radius: 5px;
     display:flex;
     align-items: center;
