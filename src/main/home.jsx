@@ -356,7 +356,7 @@ const Home = () => {
                 <div>
               <time dateTime='2025-5-9'>May 9, 2025</time>
                   
-                  <p>✅ Check-in: May 9, 2025, at 3:00 PM | ⏱️ Event Time: May 9, 4:00 PM – May 10, 7:00 AM | 📍 Venue: Government Engineering College, Hassan</p>
+                  <p>✅ Check-in: May 9, 2025, at 3:00 PM | ⏱️ Event Time: May 9, 4:00 PM – May 10 | 📍 Venue: Government Engineering College, Hassan</p>
               
                 </div>
               </li>
@@ -478,6 +478,7 @@ const Home = () => {
             lineHeight: 1.7 
           }}>
             <li>🧑‍🎓 Participants must be currently enrolled students.</li>
+            <li>👥 Teams must build the prototype on hackathon day only.</li>
             <li>🧑‍🤝‍🧑 All team members must enter the same team name.</li>
             <li>🪪 College ID card is mandatory (original only).</li>
             <li>🧑‍🤝‍🧑 Inter-College and Inter Branch teams are also allowed.</li>
@@ -492,7 +493,6 @@ const Home = () => {
 
               <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script></li>
             <li>❌ No copying or using old projects (even your own).</li>
-            <li>👥 Teams must build the prototype on hackathon day only.</li>
             <li>🚫 Any form of plagiarism or code-of-conduct violation will lead to disqualification.</li>
             <li>📜 Final decisions rest with the organizing committee.</li>
             <li>😎 Be respectful and enjoy the event!</li>
