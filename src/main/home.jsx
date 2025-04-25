@@ -340,7 +340,7 @@ const Home = () => {
                 <div>
               <time>May 5, 2025</time>
                   
-                  <p>🛠️ Prototype Development Phase: Begins after May 5, 2025</p>
+                  <p>🧑‍💻 Online Mentoring Sessions for Selected Teams – Get expert guidance to elevate your hackathon project.</p>
                 
                 </div>
               </li>
@@ -492,6 +492,7 @@ const Home = () => {
 
               <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script></li>
             <li>❌ No copying or using old projects (even your own).</li>
+            <li>👥 Teams must build the prototype on hackathon day only.</li>
             <li>🚫 Any form of plagiarism or code-of-conduct violation will lead to disqualification.</li>
             <li>📜 Final decisions rest with the organizing committee.</li>
             <li>😎 Be respectful and enjoy the event!</li>
