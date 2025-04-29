@@ -59,7 +59,7 @@ export const submitFormData = async (formData) => {
           transaction: formData.transactionId,
           payment_proof: paymentProofUrl,
           track: formData.track,
-          numMem:formData.numMembers+1,
+          numMem:formData.numMembers,
           team_name:formData.teamName,
         }
       ]);
