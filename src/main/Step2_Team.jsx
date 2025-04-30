@@ -67,7 +67,6 @@ const Step2_Team = ({ nextStep, prevStep, handleChange, values }) => {
             {[1, 2, 3].map((num) => (
               <option key={num} value={num}>
                 {num+1} Members
-                {console.log("no ="+values.numMembers++)}
               </option>
             ))}
           </select>
