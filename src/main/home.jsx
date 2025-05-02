@@ -18,6 +18,9 @@ import DeadlineBanner from '../components/DeadlineBanner';
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const registrationDeadline = new Date("2025-05-05T00:00:00");
+  const currentDate = new Date();
+  const isRegistrationClosed = currentDate > registrationDeadline;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -320,7 +323,7 @@ const Home = () => {
                   <br></br>
               <time>April 12, 2025</time>
                   
-                  <p>🔓 Registrations Open</p>
+              <p>🔓 Registrations {isRegistrationClosed ? "Closed" : "Open"}</p>
                 
                 </div>
               </li>  
