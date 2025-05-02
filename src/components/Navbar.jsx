@@ -8,8 +8,19 @@ export default function Navbar({ loggedIn = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate(); // ✅ for routing
 
+  const registrationDeadline = new Date("2025-05-05T00:00:00");
+  const currentDate = new Date();
+  const isRegistrationClosed = currentDate > registrationDeadline;
+
+
   const handleRegisterClick = () => {
-    navigate('/register'); // ✅ go to /register route
+    if (isRegistrationClosed) {
+      // Prevent navigating to /register if registration is closed
+      alert("Registration is closed.");
+      navigate('/'); // Redirect to home or any other appropriate route
+    } else {
+      navigate('/register');
+    }
   };
 
   return (
@@ -36,8 +47,8 @@ export default function Navbar({ loggedIn = false }) {
         <div className="right-icons">
           {!loggedIn && (
             <button onClick={handleRegisterClick} className="register-btn">
-              <ArrowRightToLine className="icon" />
-              Register
+             {!isRegistrationClosed && <ArrowRightToLine className="icon" />}
+              {isRegistrationClosed ? "Regestrations Closed" : "Register"}
             </button>
           )}
           <button className="menu-btn" onClick={() => setIsOpen(!isOpen)}>
