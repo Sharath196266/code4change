@@ -14,6 +14,7 @@ import hackculture_logo from "../assets/hackculture.png"
 import hassanview_logo from "../assets/hassanview2.png"
 import enginkan_logo from "../assets/enginkan_log.png"
 import "../styles/timelinecss.css"
+import DeadlineBanner from '../components/DeadlineBanner';
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -265,6 +266,7 @@ const Home = () => {
   return (
     <div style={styles.page}>
       <Navbar />
+      <DeadlineBanner deadline="2025-05-05T00:00:00" />
       <div style={styles.scrollContent}>
         <div id="mainImage">
         <img src={mainImg} alt="CODE4CHANGE Logo" style={styles.mainimg} />
