@@ -15,12 +15,14 @@ import hassanview_logo from "../assets/hassanview2.png"
 import enginkan_logo from "../assets/enginkan_log.png"
 import "../styles/timelinecss.css"
 import DeadlineBanner from '../components/DeadlineBanner';
+import logo3 from "../assets/LOGO3.png"
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const registrationDeadline = new Date("2025-05-05T00:00:00");
   const currentDate = new Date();
   const isRegistrationClosed = currentDate > registrationDeadline;
+  const [showLogo3Details, setShowLogo3Details] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -46,7 +48,7 @@ const Home = () => {
 
   useEffect(() => {
     const items = document.querySelectorAll(".timeline li");
-  
+
     const isElementInViewport = (el) => {
       const rect = el.getBoundingClientRect();
       return (
@@ -291,6 +293,62 @@ const Home = () => {
             <img src={svl_logo} alt="Sponsor 1" style={styles.sponsorLogoSvl} /> </a>
             <a href="https://avmcs.com.au" target="_blank">
             <img src={avcms_logo} alt="Sponsor 2" style={styles.sponsorLogo} /></a>
+            <div onClick={() => setShowLogo3Details(true)} style={{ cursor: 'pointer' }}>
+              <img
+                src={logo3}
+                alt="Sponsor 3"
+                style={{
+                  ...styles.sponsorLogo,
+                  marginTop: windowWidth > 400 ? 20 : -10
+                }}
+              />
+            </div>
+            {showLogo3Details && (
+            <div style={{
+              position: 'fixed',
+              top: 0, left: 0,
+              width: '100%', height: '100%',
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 9999,
+            }}>
+              <div style={{
+                background: '#fff',
+                padding: '2rem',
+                borderRadius: '12px',
+                maxWidth: '600px',
+                width: '90%',
+                textAlign: 'left',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              }}>
+                <h4>🚀 SMMUD TECHNOLOGIES PVT LTD</h4>
+                <p style={{fontSize:14}}>
+                  Founded in 2020, SMMUD Technologies Pvt Ltd has provided internships to over 100 individuals in areas such as Full Stack Web Development and Machine Learning. 
+                  The company has successfully developed projects for multiple clients and is actively looking to hire more interns in this fiscal year.
+                </p>
+                <p style={{fontSize:14}}>
+                  It was founded by three alumni of Government Engineering College, Hassan, with a vision to help small businesses create innovative products and efficiently connect with customers.
+                </p>
+                <button
+                  onClick={() => setShowLogo3Details(false)}
+                  style={{
+                    marginTop: '1rem',
+                    padding: '8px 16px',
+                    backgroundColor: '#004aad',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: 16,
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
           </div>
           <h4 style={styles.heading}>Platform Partners</h4>
           <div style={styles.sponsorRow}>
