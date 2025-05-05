@@ -16,6 +16,7 @@ import enginkan_logo from "../assets/enginkan_log.png"
 import "../styles/timelinecss.css"
 import DeadlineBanner from '../components/DeadlineBanner';
 import logo3 from "../assets/LOGO3.png"
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -23,6 +24,11 @@ const Home = () => {
   const currentDate = new Date();
   const isRegistrationClosed = currentDate > registrationDeadline;
   const [showLogo3Details, setShowLogo3Details] = useState(false);
+  const navigate = useNavigate(); 
+
+  const handleSelect = () => {
+    navigate('/SelectedTeams'); 
+  };
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -398,7 +404,9 @@ const Home = () => {
               <time>May 5, 2025</time>
                  
                   <p>📢 Hackathon Team Selection Announcement</p>
-                
+                  <button type="submit" style={{backgroundColor:"#fff"}} >
+                  <a onClick={handleSelect}>Selected Teams</a>
+                  </button>
                 </div>
               </li>
               <li>

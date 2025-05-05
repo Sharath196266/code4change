@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'; // ✅ Import this
 
 const DeadlineBanner = ({ deadline }) => {
   const [showBanner, setShowBanner] = useState(true);
   const [timeLeft, setTimeLeft] = useState("");
+  const navigate = useNavigate(); // ✅ Add this
+
+  const handleSelect = () => {
+    navigate('/SelectedTeams'); 
+  };
 
   useEffect(() => {
     if (!deadline) return;
@@ -13,19 +19,35 @@ const DeadlineBanner = ({ deadline }) => {
       const diff = target - now;
 
       if (diff <= 0) {
-        setTimeLeft("⏳ Deadline reached!");
+        setTimeLeft(
+          <>
+            ⏳ Deadline reached! | ✅{" "}
+            <a
+              onClick={handleSelect}
+              style={{
+                textDecoration: "underline",
+                color: "#fff",
+                cursor: "pointer",
+              }}
+            >
+              Selected Teams
+            </a>
+          </>
+        );
         return;
       }
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
       setTimeLeft(`${days}d ${hours}h ${minutes}m left`);
     };
 
-    updateCountdown(); // initial call
-    const intervalId = setInterval(updateCountdown, 60000); // Update every minute
+    updateCountdown();
+    const intervalId = setInterval(updateCountdown, 60000);
 
     return () => clearInterval(intervalId);
   }, [deadline]);
@@ -38,7 +60,8 @@ const DeadlineBanner = ({ deadline }) => {
     showBanner && (
       <div style={styles.banner}>
         <span>⏰ Deadline Countdown: {timeLeft}</span>
-        <button style={styles.closeBtn} onClick={handleClose}>X
+        <button style={styles.closeBtn} onClick={handleSelect}>
+          X
         </button>
       </div>
     )

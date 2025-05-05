@@ -15,9 +15,8 @@ export default function Navbar({ loggedIn = false }) {
 
   const handleRegisterClick = () => {
     if (isRegistrationClosed) {
-      // Prevent navigating to /register if registration is closed
       alert("Registration is closed.");
-      navigate('/'); // Redirect to home or any other appropriate route
+      navigate('/'); 
     } else {
       navigate('/register');
     }
